@@ -1,5 +1,7 @@
 <template>
-  <div class="projectsSidebar test bg-teal-900 w-full md:w-1/3 h-screen">
+  <div
+    class="projectsSidebar test bg-black block w-full md:w-1/3 h-full fixed z-0 overflow-x-hidden"
+  >
     <div class="pt-24 ml-12">
       <div class="bg-white h-48 w-48 rounded">
         <img
@@ -28,9 +30,22 @@
     </div>
 
     <div class="w-3/4 mx-auto">
-      <div class="h-8 p-8 fa-2x fab fa-linkedin"></div>
-      <div class="h-8 p-8 fa-2x fab fa-instagram"></div>
-      <div class="h-8 p-8 fa-2x fab fa-github-square"></div>
+      <a
+        class="h-8 p-8 fa-2x fas fa-envelope"
+        href="mailto:leofranco1305@gmail.com?Subject=Hello%20from%20Portfolio!"
+      ></a>
+      <a
+        class="h-8 p-8 fa-2x fab fa-github-square"
+        href="https://www.github.com/Francozeira"
+      ></a>
+      <a
+        class="h-8 p-8 fa-2x fab fa-linkedin"
+        href="https://www.linkedin.com/in/leo-franco-41b769169"
+      ></a>
+      <a
+        class="h-8 p-8 fa-2x fab fa-instagram"
+        href="https://www.instagram.com/francozeira"
+      ></a>
     </div>
   </div>
 </template>
@@ -46,8 +61,23 @@ export default {
 </script>
 
 <style>
-/* .test {
+.test {
+  background-repeat: no-repeat;
   background-size: cover;
-  background: url('https://d.newsweek.com/en/full/658174/cassini-launch.jpg?w=1600&h=1600&q=88&f=c17a0f41d7a9cbd93e1041ebbd45f181')
-} */
+  background-position: bottom;
+
+  /* background-image: url('//live.staticflickr.com/8146/29524633970_5c4b0e9074_b.jpg'); */
+  /* background-image: url('//live.staticflickr.com/65535/48866057801_0e704cd2b5_k.jpg'); */
+  /* background-image: url('//live.staticflickr.com/4458/37561603242_ba98acd01e_k.jpg'); */
+  /* background-image: url('//live.staticflickr.com/8451/29366404680_7f463e607f_h.jpg'); */
+  /* background-image: url('//live.staticflickr.com/8444/29457787572_360aff5aa3.jpg'); */
+  /* TOP DA TOP */
+  background-image: url("//live.staticflickr.com/8240/29457794852_09ccedfc3b.jpg");
+  /* background-image: url('');
+  background-image: url('');
+  background-image: url('');
+  background-image: url('');
+  background-image: url('');
+  background-image: url(''); */
+}
 </style>
