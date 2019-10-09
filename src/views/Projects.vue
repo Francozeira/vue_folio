@@ -1,14 +1,18 @@
 <template>
-  <div class="projects">
+  <div class="projects flex">
     <ProjectsSidebar :userInfo="userInfo" />
+    <ProjectsList :userInfo="userInfo" />
   </div>
 </template>
 
 <script>
 import ProjectsSidebar from "@/components/ProjectsSidebar.vue";
+import ProjectsList from "@/components/ProjectsList.vue";
+
 export default {
   components: {
-    ProjectsSidebar
+    ProjectsSidebar,
+    ProjectsList
   },
 
   data() {
