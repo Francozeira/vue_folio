@@ -1,23 +1,26 @@
 <template>
-  <div class="ProjectsList w-full flex flex-row flex-wrap md:w-2/3 md:ml-auto">
-    <div
-      v-for="repo in userRepos"
-      v-bind:key="repo.id"
-      class="cardWrapper m-4 rounded w-full md:w-1/2 p-4"
-    >
-      <div class="pb-2 text-lg text-left font-bold">{{ repo.name }}</div>
-      <div class="pb-2 text-lg text-left">
-        {{ repo.description || "Add repo description here!" }}
-      </div>
-      <div class="text-lg text-left flex">
-        <div class="mr-8">
-          <span class="pr-2 fas fa-code"></span>{{ repo.language }}
+  <div class="ProjectsList w-full md:w-2/3 md:ml-auto">
+    <div class="pl-4 text-6xl text-left font-bold">Projects.</div>
+    <div class="flex flex-row flex-wrap">
+      <div
+        v-for="repo in userRepos"
+        v-bind:key="repo.id"
+        class="cardWrapper m-4 rounded w-full md:w-1/2 p-4"
+      >
+        <div class="pb-2 text-lg text-left font-bold">{{ repo.name }}</div>
+        <div class="pb-2 text-lg text-left">
+          {{ repo.description || "Add repo description here!" }}
         </div>
-        <div class="mr-8">
-          <span class="pr-2 fas fa-star"></span>{{ repo.stargazers_count }}
-        </div>
-        <div class="mr-8">
-          <span class="pr-2 fas fa-code-branch"></span>{{ repo.forks }}
+        <div class="text-lg text-left flex">
+          <div class="mr-8">
+            <span class="pr-2 fas fa-code"></span>{{ repo.language }}
+          </div>
+          <div class="mr-8">
+            <span class="pr-2 fas fa-star"></span>{{ repo.stargazers_count }}
+          </div>
+          <div class="mr-8">
+            <span class="pr-2 fas fa-code-branch"></span>{{ repo.forks }}
+          </div>
         </div>
       </div>
     </div>
