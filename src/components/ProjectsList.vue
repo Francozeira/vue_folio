@@ -1,12 +1,24 @@
 <template>
-  <div class="ProjectsList flex w-full md:w-2/3">
-    <div class="cardWrapper bg-gray-900 m-4 rounded w-full md:w-1/2 h-40">
-      <div class="p-4 text-lg text-left">RHCP</div>
-      <div class="px-4 text-lg text-left">desciption of the repo.</div>
-      <div class="px-4 text-lg text-left flex">
-        <div class="mr-4"><span class="pr-1 fas fa-code"></span>Vue</div>
-        <div class="mr-4"><span class="pr-1 fas fa-star"></span>99</div>
-        <div class="mr-4"><span class="pr-1 fas fa-code-branch"></span>6</div>
+  <div class="ProjectsList w-full flex flex-row flex-wrap md:w-2/3 md:ml-auto">
+    <div
+      v-for="repo in userRepos"
+      v-bind:key="repo.id"
+      class="cardWrapper m-4 rounded w-full md:w-1/2 p-4"
+    >
+      <div class="pb-2 text-lg text-left font-bold">{{ repo.name }}</div>
+      <div class="pb-2 text-lg text-left">
+        {{ repo.description || "Add repo description here!" }}
+      </div>
+      <div class="text-lg text-left flex">
+        <div class="mr-8">
+          <span class="pr-2 fas fa-code"></span>{{ repo.language }}
+        </div>
+        <div class="mr-8">
+          <span class="pr-2 fas fa-star"></span>{{ repo.stargazers_count }}
+        </div>
+        <div class="mr-8">
+          <span class="pr-2 fas fa-code-branch"></span>{{ repo.forks }}
+        </div>
       </div>
     </div>
   </div>
@@ -18,6 +30,22 @@ export default {
     userInfo: {
       required: true
     }
+  },
+
+  data() {
+    return {
+      userRepos: []
+    };
+  },
+
+  beforeMount() {
+    fetch("https://api.github.com/users/francozeira/repos")
+      .then(response => response.json())
+      .then(json => {
+        this.userRepos = json;
+        console.log(this.userRepos);
+      });
+    // .catch(console.log("Something went wrong with Github API info"))
   }
 };
 </script>
@@ -25,6 +53,9 @@ export default {
 <style>
 .ProjectsList {
   background-color: black;
-  /* background: url('https://d.newsweek.com/en/full/658174/cassini-launch.jpg?w=1600&h=1600&q=88&f=c17a0f41d7a9cbd93e1041ebbd45f181') */
+}
+
+.cardWrapper {
+  background-color: rgba(100, 100, 100, 0.15);
 }
 </style>

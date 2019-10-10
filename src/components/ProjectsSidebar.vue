@@ -1,6 +1,6 @@
 <template>
   <div
-    class="projectsSidebar test bg-black block w-full md:w-1/3 h-full fixed z-0 overflow-x-hidden"
+    class="projectsSidebar test bg-black block w-full md:w-1/3 h-full fixed z-0 overflow-hidden"
   >
     <div class="pt-24 ml-12">
       <div class="bg-white h-48 w-48 rounded">
@@ -63,7 +63,7 @@ export default {
 <style>
 .test {
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: bottom;
 
   /* background-image: url('//live.staticflickr.com/8146/29524633970_5c4b0e9074_b.jpg'); */
