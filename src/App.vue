@@ -16,17 +16,4 @@
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-  background-color: rgba(10, 10, 10, 0.3);
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
