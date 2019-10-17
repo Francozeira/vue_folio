@@ -19,6 +19,9 @@
         >
           <div class="pb-2 text-lg text-left font-bold">{{ repo.name }}</div>
           <div class="pb-2 text-lg text-left">
+            <img
+              src="https://github.githubassets.com/images/icons/emoji/unicode/2604.png?v8"
+            />
             {{ repo.description || "Add repo description here!" }}
           </div>
           <div class="text-lg text-left flex">
