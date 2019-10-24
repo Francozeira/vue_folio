@@ -73,9 +73,9 @@ export default {
   /* background-image: url('//live.staticflickr.com/65535/48866057801_0e704cd2b5_k.jpg'); */
   /* background-image: url('//live.staticflickr.com/4458/37561603242_ba98acd01e_k.jpg'); */
   /* background-image: url('//live.staticflickr.com/8451/29366404680_7f463e607f_h.jpg'); */
-  /* background-image: url('//live.staticflickr.com/8444/29457787572_360aff5aa3.jpg'); */
+  background-image: url("//live.staticflickr.com/8444/29457787572_360aff5aa3.jpg");
   /* TOP DA TOP */
-  background-image: url("//live.staticflickr.com/8240/29457794852_09ccedfc3b.jpg");
+  /* background-image: url("//live.staticflickr.com/8240/29457794852_09ccedfc3b.jpg"); */
   /* background-image: url('');
   background-image: url('');
   background-image: url('');

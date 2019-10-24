@@ -19,10 +19,10 @@
         >
           <div class="pb-2 text-lg text-left font-bold">{{ repo.name }}</div>
           <div class="pb-2 text-lg text-left">
-            <img
-              src="https://github.githubassets.com/images/icons/emoji/unicode/2604.png?v8"
-            />
-            {{ repo.description || "Add repo description here!" }}
+            {{ repo.description || "Insert description here!" }}
+          </div>
+          <div class="pb-2 text-lg text-left text-teal-400">
+            {{ parsedDescription }}
           </div>
           <div class="text-lg text-left flex">
             <div class="mr-8">
@@ -58,8 +58,9 @@ export default {
 
   data() {
     return {
+      infoLoaded: false,
       userRepos: [],
-      faker: true
+      parsedDescription: "Add repo description here!"
     };
   },
 
@@ -69,8 +70,30 @@ export default {
       .then(json => {
         this.userRepos = json;
         console.log(this.userRepos);
+        this.infoLoaded = true;
       });
     // .catch(console.log("Something went wrong with Github API info"))
+  },
+
+  methods: {
+    descriptionParser(data) {
+      // let dscrt = data;
+      // console.log(dscrt.split(/\b\\\:*\:\b/));
+
+      return data;
+    }
+  },
+
+  // computed: {
+  //   description: function () {
+  //     return userRepos[0].description
+  //   }
+  // },
+
+  watch: {
+    infoLoaded: function() {
+      console.log(this.userRepos[0].description);
+    }
   }
 };
 </script>
