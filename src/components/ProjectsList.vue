@@ -10,11 +10,22 @@
     <div v-if="!infoLoaded" class="background-teal-400">ONLY THIS</div>
     <div v-if="infoLoaded">
       <div class="flex flex-row flex-wrap">
-        <div v-for="(repo, i) in userRepos" v-bind:key="repo.id" class="w-full md:w-1/2">
-          <div class="cardWrapper rounded p-4 mb-4 ml-4" v-bind:class="{ 'mr-4': i % 2 == 1 }">
+        <div
+          v-for="(repo, i) in userRepos"
+          v-bind:key="repo.id"
+          class="w-full md:w-1/2"
+        >
+          <div
+            class="cardWrapper rounded p-4 mb-4 ml-4"
+            v-bind:class="{ 'mr-4': i % 2 == 1 }"
+          >
             <div class="pb-2 text-lg text-left font-bold">{{ repo.name }}</div>
-            <div class="pb-2 text-lg text-left">{{ repo.description || "Insert description here!" }}</div>
-            <div class="pb-2 text-lg text-left text-teal-400">{{ parsedDescription }}</div>
+            <div class="pb-2 text-lg text-left">
+              {{ repo.description || "Insert description here!" }}
+            </div>
+            <div class="pb-2 text-lg text-left text-teal-400">
+              {{ parsedDescription }}
+            </div>
             <div class="text-lg text-left flex">
               <div class="mr-8">
                 <span class="pr-2 fas fa-code"></span>
@@ -35,7 +46,11 @@
     </div>
 
     <div class="my-12 text-lg text-center">
-      Vue.JS implementation of @imfunniee/<a id="imfunnieeLink" href="https://github.com/imfunniee/gitfolio">gitfolio</a>
+      Vue.JS implementation of @imfunniee/<a
+        id="imfunnieeLink"
+        href="https://github.com/imfunniee/gitfolio"
+        >gitfolio</a
+      >
     </div>
   </div>
 </template>
@@ -76,7 +91,7 @@ export default {
     },
 
     parse() {
-    //   console.log(this.userRepos[0].description);
+      //   console.log(this.userRepos[0].description);
     }
   },
 
@@ -89,7 +104,7 @@ export default {
   watch: {
     infoLoaded: function() {
       // console.log(this.userRepos[0].description);
-      let emojis = this.userRepos[0].description.split(/\:[^\W]*\:/)
+      let emojis = this.userRepos[0].description.split(/\:[^\W]*\:/);
       console.log(emojis);
     }
   }
