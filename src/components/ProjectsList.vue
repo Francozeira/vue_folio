@@ -103,16 +103,9 @@ export default {
 
   watch: {
     infoLoaded: function() {
-      // console.log(this.userRepos[0].description);
-      let emojis = this.userRepos[0].description.slice(/\:[^\W]*\:/);
-      let emojis132 = this.userRepos[0].description;
-      console.log('hosemanship',emojis132.search('fir'));
-
-      var intRegex = /[0-9 -()+]+$/;  
-
-      var myNumber = '999';
-      var isInt = myNumber.search(intRegex);
-      console.log(isInt);
+      let emojis = this.userRepos[0].description.replace(/\:[^\W]*\:/g, "emot");
+      console.log(emojis);
+      
     }
   }
 };
