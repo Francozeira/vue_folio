@@ -24,7 +24,7 @@
               {{ repo.description || "Insert description here!" }}
             </div>
             <div class="pb-2 text-lg text-left text-teal-400">
-              {{ parsedDescription }}
+              {{ parsedDescription[i] }}
             </div>
             <div class="text-lg text-left flex">
               <div class="mr-8">
@@ -67,7 +67,7 @@ export default {
     return {
       infoLoaded: false,
       userRepos: [],
-      parsedDescription: "Add repo description here!"
+      parsedDescription: ["Add repo description here!"]
     };
   },
 
@@ -76,7 +76,7 @@ export default {
       .then(response => response.json())
       .then(json => {
         this.userRepos = json;
-        console.log(this.userRepos);
+        // console.log(this.userRepos);
         this.infoLoaded = true;
       });
     // .catch(console.log("Something went wrong with Github API info"))
@@ -103,12 +103,21 @@ export default {
 
   watch: {
     infoLoaded: function() {
-      let emojis = this.userRepos[0].description.replace(/\:[^\W]*\:/g, "emot");
-      console.log(emojis);
-      
+      for (let i = 0; i < this.userRepos.length; i++) {
+        this.userRepos[i].description === null ?
+          this.parsedDescription[i] = "No repo description avaliable"
+          : this.parsedDescription[i] = this.userRepos[i].description.match(/\:[^\W]*\:/g);
+      }
+          console.log(this.parsedDescription);
+
     }
+
+
   }
 };
+
+// :sweat_smile: :mortar_board: small, ugly and simple portfolio for developing skills
+
 </script>
 
 <style>
