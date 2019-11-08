@@ -1,5 +1,5 @@
 <template>
-  <div class="ProjectsList w-full md:w-2/3 md:ml-auto">
+  <div class="ProjectsList h-full w-full pt-64 mt-64 md:p-0 md:m-0 md:w-2/3 md:ml-auto">
     <div id="nav" class="text-2xl text-right">
       <!-- <router-link to="/"><span class="pr-2 fas fa-home fa-3x"></span></router-link>  -->
 
@@ -115,8 +115,6 @@ export default {
 
   }
 };
-
-// :sweat_smile: :mortar_board: small, ugly and simple portfolio for developing skills
 
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <div
-    class="projectsSidebar bg-black block w-full md:w-1/3 h-full fixed z-0 overflow-hidden"
+    class="projectsSidebar bg-black w-full absolute md:w-1/3 md:h-full md:fixed z-0 md:overflow-hidden"
   >
-    <div class="pt-24 md:ml-12">
+    <div class="pt-12 md:pt-24 md:ml-12">
       <div class="imgContainer h-48 w-48 rounded mx-auto md:mx-0">
         <img :src="userInfo.avatar_url" class="p-2" alt="User image" />
       </div>
