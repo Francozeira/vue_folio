@@ -1,9 +1,9 @@
 <template>
-  <div class="ProjectsList h-full w-full pt-64 mt-64 md:p-0 md:m-0 md:w-2/3 md:ml-auto">
+  <div
+    class="ProjectsList h-full w-full pt-64 mt-64 md:p-0 md:m-0 md:w-2/3 md:ml-auto"
+  >
     <div id="nav" class="text-2xl text-right">
-      <!-- <router-link to="/"><span class="pr-2 fas fa-home fa-3x"></span></router-link>  -->
-
-      <router-link to="/">Home</router-link>|
+      <router-link to="/">Home </router-link>|
       <router-link to="/projects">Projects</router-link>
     </div>
     <div class="pl-4 mb-12 text-6xl text-left font-bold">Projects.</div>
@@ -57,65 +57,69 @@
 
 <script>
 export default {
-  props: {
-    userInfo: {
-      required: true
-    }
-  },
+	props: {
+		userInfo: {
+			required: true,
+		},
+	},
 
-  data() {
-    return {
-      infoLoaded: false,
-      userRepos: [],
-      parsedDescription: ["Add repo description here!"]
-    };
-  },
+	data() {
+		return {
+			infoLoaded: false,
+			userRepos: [],
+			parsedDescription: ['Add repo description here!'],
+		}
+	},
 
-  beforeMount() {
-    fetch("https://api.github.com/users/francozeira/repos")
-      .then(response => response.json())
-      .then(json => {
-        this.userRepos = json;
-        // console.log(this.userRepos);
-        this.infoLoaded = true;
-      });
-    // .catch(console.log("Something went wrong with Github API info"))
-  },
+	beforeMount() {
+		fetch('https://api.github.com/users/francozeira/repos')
+			.then((response) => response.json())
+			.then((json) => {
+				this.userRepos = json
+				// console.log(this.userRepos);
+				this.infoLoaded = true
+			})
+		// .catch(console.log("Something went wrong with Github API info"))
+	},
 
-  methods: {
-    descriptionParser(data) {
-      // let dscrt = data;
-      // console.log(dscrt.split(/\b\\\:*\:\b/));
+	methods: {
+		descriptionParser(data) {
+			// let dscrt = data;
+			// console.log(dscrt.split(/\b\\\:*\:\b/));
 
-      return data;
-    },
+			return data
+		},
 
-    parse() {
-      //   console.log(this.userRepos[0].description);
-    }
-  },
+		parse() {
+			//   console.log(this.userRepos[0].description);
+		},
+	},
 
-  // computed: {
-  //   description: function () {
-  //     return userRepos[0].description
-  //   }
-  // },
-
-  watch: {
-    infoLoaded: function() {
-      for (let i = 0; i < this.userRepos.length; i++) {
-        this.userRepos[i].description === null ?
-          this.parsedDescription[i] = "No repo description avaliable"
-          : this.parsedDescription[i] = this.userRepos[i].description.match(/\:[^\W]*\:/g);
-      }
-          console.log(this.parsedDescription);
-
-    }
-
-
-  }
-};
-
+	// computed: {
+	//   description: function () {
+	//     return userRepos[0].description
+	//   }
+	// },
+	watch: {
+		infoLoaded: function() {
+			// for (let i = 0; i < this.userRepos.length; i++) {
+			// 	this.userRepos[i].description === null
+			// 		? (this.parsedDescription[i] = 'No repo description avaliable')
+			// 		: (this.parsedDescription[i] = this.userRepos[i].description.match(
+			// 			/\:[^\W]*\:/g
+			// 		))
+			// }
+      
+			this.userRepos.forEach( (repo,i) => {
+				repo.description === null
+					? (this.parsedDescription[i] = 'No repo description avaliable')
+					: (this.parsedDescription[i] = this.userRepos[i].description.match(
+						/\:[a-z,0-9,_,+,-]+\:/g))
+			})
+			console.log(this.parsedDescription)
+		},
+	},
+}
 </script>
 
 <style>

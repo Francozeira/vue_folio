@@ -28,7 +28,7 @@
         v-if="userInfo.hireable"
         class="pt-3 md:text-left text-center font-bold text-sm"
       >
-        <span class="pr-1 fas fa-link"></span>Hireable
+        <span class="pr-1 fas fa-link"></span> Hireable
       </div>
     </div>
 
@@ -55,12 +55,12 @@
 
 <script>
 export default {
-  props: {
-    userInfo: {
-      required: true
-    }
-  }
-};
+	props: {
+		userInfo: {
+			required: true
+		}
+	}
+}
 </script>
 
 <style>
@@ -85,6 +85,10 @@ export default {
 }
 
 .imgContainer {
-  background-color: rgba(255, 255, 255, 0.7);
+  background: conic-gradient(
+    hsl(100 100% 60%),
+  	hsl(200 100% 60%),
+  	hsl(100 100% 60%)
+  );
 }
 </style>

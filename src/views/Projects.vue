@@ -6,31 +6,31 @@
 </template>
 
 <script>
-import ProjectsSidebar from "@/components/ProjectsSidebar.vue";
-import ProjectsList from "@/components/ProjectsList.vue";
+import ProjectsSidebar from '@/components/ProjectsSidebar.vue'
+import ProjectsList from '@/components/ProjectsList.vue'
 
 export default {
-  components: {
-    ProjectsSidebar,
-    ProjectsList
-  },
+	components: {
+		ProjectsSidebar,
+		ProjectsList
+	},
 
-  data() {
-    return {
-      userInfo: []
-    };
-  },
+	data() {
+		return {
+			userInfo: []
+		}
+	},
 
-  beforeMount() {
-    fetch("https://api.github.com/users/francozeira")
-      .then(response => response.json())
-      .then(json => {
-        this.userInfo = json;
-        console.log(this.userInfo);
-      });
-    // .catch(console.log("Something went wrong with Github API info"))
-  }
-};
+	beforeMount() {
+		fetch('https://api.github.com/users/francozeira')
+			.then(response => response.json())
+			.then(json => {
+				this.userInfo = json
+				console.log(this.userInfo)
+			})
+			// .catch(console.log('Something went wrong with Github API info'))
+	}
+}
 </script>
 
 <style>
