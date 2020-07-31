@@ -143,5 +143,11 @@ export default {
 #nav a.router-link-exact-active,
 #imfunnieeLink {
   color: #139786;
+  transition: 2s;
+}
+
+#imfunnieeLink:hover {
+  color: #1feed2;
+  font-size: 1.2em;
 }
 </style>
