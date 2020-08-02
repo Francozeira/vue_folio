@@ -7,28 +7,28 @@
         <img :src="userInfo.avatar_url" class="p-2" alt="User image" />
       </div>
       <div class="pt-8 text-2xl md:text-left text-center font-bold">
-        {{ userInfo.name }}
+        <span class="description"> {{ userInfo.name }}</span>
       </div>
       <div class="text-lg md:text-left text-center font-bold">
-        @{{ userInfo.login }}
+        <span class="description"> @{{ userInfo.login }}</span>
       </div>
       <div class="pt-8 md:text-left text-center font-bold text-sm">
-        <span class="pr-1 fas fa-address-card"></span>
-        {{ userInfo.bio }}
+        <span class="pr-1 fas fa-address-card"></span> 
+        <span class="description"> {{ userInfo.bio }}</span>
       </div>
       <div class="pt-3 md:text-left text-center font-bold text-sm">
         <span class="pr-1 fas fa-map-marker-alt"></span>
-        {{ userInfo.location }}
+        <span class="description"> {{ userInfo.location }}</span>
       </div>
       <div class="pt-3 md:text-left text-center font-bold text-sm">
         <span class="pr-1 fas fa-briefcase"></span>
-        {{ userInfo.company }}
+        <span class="description"> {{ userInfo.company }}</span>
       </div>
       <div
         v-if="userInfo.hireable"
         class="pt-3 md:text-left text-center font-bold text-sm"
       >
-        <span class="pr-1 fas fa-link"></span> Hireable
+        <span class="pr-1 fas fa-link"></span> <span class="description"> Hireable</span>
       </div>
     </div>
 
@@ -90,5 +90,11 @@ export default {
   	hsl(200 100% 60%),
   	hsl(100 100% 60%)
   );
+}
+
+.description {
+  padding: 5px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.4)
 }
 </style>

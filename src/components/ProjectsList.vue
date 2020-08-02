@@ -14,6 +14,7 @@
           v-for="(repo, i) in userRepos"
           v-bind:key="repo.id"
           class="w-full md:w-1/2"
+          @click="selectRepo(repo.html_url)"
         >
           <div
             class="cardWrapper rounded p-4 mb-4 ml-4"
@@ -24,7 +25,11 @@
               {{ repo.description || "Insert description here!" }}
             </div>
             <div class="pb-2 text-lg text-left text-teal-400">
-              {{ parsedDescription[i] }}
+              <i class="fas fa-cross"></i>
+              {{ formatedDate(repo.created_at) }}
+                <span class="text-white separator"> |   </span>  
+              <i class="fas fa-edit"></i>
+              {{ formatedDate(repo.updated_at) }}
             </div>
             <div class="text-lg text-left flex">
               <div class="mr-8">
@@ -46,7 +51,7 @@
     </div>
 
     <div class="my-12 text-lg text-center">
-      Vue.JS implementation of @imfunniee/<a
+      Vue.JS implementation based on @imfunniee/<a
         id="imfunnieeLink"
         href="https://github.com/imfunniee/gitfolio"
         >gitfolio</a
@@ -76,39 +81,26 @@ export default {
 			.then((response) => response.json())
 			.then((json) => {
 				this.userRepos = json
-				// console.log(this.userRepos);
 				this.infoLoaded = true
 			})
 		// .catch(console.log("Something went wrong with Github API info"))
 	},
 
 	methods: {
-		descriptionParser(data) {
-			// let dscrt = data;
-			// console.log(dscrt.split(/\b\\\:*\:\b/));
-
-			return data
+		selectRepo: function (repo) {
+			window.open(repo, '_blank')
 		},
-
-		parse() {
-			//   console.log(this.userRepos[0].description);
+		formatedDate: unparsedDate => {
+			const date = new Date(unparsedDate)
+			const dd = String(date. getDate()). padStart(2, '0')
+			const mm = String(date. getMonth() + 1). padStart(2, '0')
+			const yyyy = date. getFullYear()
+			return dd + '/' + mm + '/' + yyyy  
 		},
 	},
 
-	// computed: {
-	//   description: function () {
-	//     return userRepos[0].description
-	//   }
-	// },
 	watch: {
 		infoLoaded: function() {
-			// for (let i = 0; i < this.userRepos.length; i++) {
-			// 	this.userRepos[i].description === null
-			// 		? (this.parsedDescription[i] = 'No repo description avaliable')
-			// 		: (this.parsedDescription[i] = this.userRepos[i].description.match(
-			// 			/\:[^\W]*\:/g
-			// 		))
-			// }
       
 			this.userRepos.forEach( (repo,i) => {
 				repo.description === null
@@ -125,10 +117,17 @@ export default {
 <style>
 .ProjectsList {
   background-color: black;
+  overflow-x: hidden;
 }
 
 .cardWrapper {
   background-color: rgba(100, 100, 100, 0.15);
+  cursor: pointer;
+  transition: 3s;
+}
+
+.cardWrapper:hover {
+  transform: scale(1.1);
 }
 
 #nav {
@@ -149,5 +148,9 @@ export default {
 #imfunnieeLink:hover {
   color: #1feed2;
   font-size: 1.2em;
+}
+
+.separator {
+  white-space:pre;
 }
 </style>
