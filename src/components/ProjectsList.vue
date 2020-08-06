@@ -2,7 +2,7 @@
   <div
     class="ProjectsList h-full w-full pt-64 mt-64 md:p-0 md:m-0 md:w-2/3 md:ml-auto"
   >
-    <div class="pt-8 md:p-0 pl-4 mb-12 text-6xl text-left font-bold">Projects.</div>
+    <div class="mt-32 md:mt-12 md:p-0 pl-4 mb-12 text-6xl text-left font-bold">Projects.</div>
     <div v-if="!infoLoaded" class="background-teal-400">LOADING...</div>
     <div v-if="infoLoaded">
       <div class="flex flex-row flex-wrap">

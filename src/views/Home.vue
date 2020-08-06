@@ -17,12 +17,13 @@ export default {
 
 	data() {
 		return {
+			userURL: 'https://api.github.com/users/francozeira',
 			userInfo: []
 		}
 	},
 
 	beforeMount() {
-		fetch('https://api.github.com/users/francozeira')
+		fetch(this.userURL)
 			.then(response => response.json())
 			.then(json => {
 				this.userInfo = json
@@ -37,5 +38,26 @@ export default {
 .projects {
   font-family: "Poppins", sans-serif;
   color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4fd1c5; 
 }
 </style>
