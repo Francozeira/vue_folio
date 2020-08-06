@@ -1,38 +1,41 @@
 <template>
-  <div class="home">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/projects">Projects</router-link>
-    </div>
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld class="bg-green-500" msg="Welcome to Your Vue.js App" />
+  <div class="projects flex">
+    <ProjectsSidebar :userInfo="userInfo" />
+    <ProjectsList :userInfo="userInfo" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import ProjectsSidebar from '@/components/ProjectsSidebar.vue'
+import ProjectsList from '@/components/ProjectsList.vue'
 
 export default {
-	name: 'home',
 	components: {
-		HelloWorld
+		ProjectsSidebar,
+		ProjectsList
+	},
+
+	data() {
+		return {
+			userInfo: []
+		}
+	},
+
+	beforeMount() {
+		fetch('https://api.github.com/users/francozeira')
+			.then(response => response.json())
+			.then(json => {
+				this.userInfo = json
+				console.log(this.userInfo)
+			})
+			// .catch(console.log('Something went wrong with Github API info'))
 	}
 }
 </script>
 
-<style scoped>
-#nav {
-  padding: 30px;
-  background-color: rgba(10, 10, 10, 0.3);
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+<style>
+.projects {
+  font-family: "Poppins", sans-serif;
+  color: white;
 }
 </style>

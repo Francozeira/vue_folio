@@ -2,12 +2,8 @@
   <div
     class="ProjectsList h-full w-full pt-64 mt-64 md:p-0 md:m-0 md:w-2/3 md:ml-auto"
   >
-    <div id="nav" class="text-2xl text-right">
-      <router-link to="/">Home </router-link>|
-      <router-link to="/projects">Projects</router-link>
-    </div>
-    <div class="pl-4 mb-12 text-6xl text-left font-bold">Projects.</div>
-    <div v-if="!infoLoaded" class="background-teal-400">ONLY THIS</div>
+    <div class="pt-8 md:p-0 pl-4 mb-12 text-6xl text-left font-bold">Projects.</div>
+    <div v-if="!infoLoaded" class="background-teal-400">LOADING...</div>
     <div v-if="infoLoaded">
       <div class="flex flex-row flex-wrap">
         <div
@@ -83,7 +79,6 @@ export default {
 				this.userRepos = json
 				this.infoLoaded = true
 			})
-		// .catch(console.log("Something went wrong with Github API info"))
 	},
 
 	methods: {
@@ -152,5 +147,12 @@ export default {
 
 .separator {
   white-space:pre;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 767px) {
+  .cardWrapper {
+    margin-right: 1rem;
+  }
 }
 </style>
